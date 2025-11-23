@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lucas Apellido – Página Académica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Descripción para buscadores -->
+  <meta name="description" content="Página académica personal de Lucas Apellido. Docencia, proyectos de investigación y proyectos personales.">
+
+  <style>
+    :root {
+      --color-fondo: #f6f7fb;
+      --color-primario: #243b53;
+      --color-secundario: #d64545;
+      --color-texto: #1f2933;
+      --color-card: #ffffff;
+      --color-borde: #d8e2ec;
+      --ancho-max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #172b4d, #243b53);
+      color: #fff;
+      padding: 1.5rem 1rem 2.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .contenedor {
+      max-width: var(--ancho-max);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .marca {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    nav a {
+      color: #d9e2ec;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 0.15s ease, color 0.15s ease, border 0.15s ease;
+    }
+
+    nav a:hover {
+      background: #102a43;
+      border-color: #9fb3c8;
+      color: #ffffff;
+    }
+
+    .hero {
+      margin-top: 1.8rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 2.6vw, 2.8rem);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-text h2 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #cbd2ff;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-text p {
+      font-size: 0.95rem;
+      color: #e0e8f9;
+      max-width: 36rem;
+    }
+
+    .hero-meta {
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      color: #c7d2e6;
+    }
+
+    .hero-meta span {
+      display: inline-block;
+      margin-right: 0.8rem;
+    }
+
+    .hero-card {
+      background-color: rgba(15, 23, 42, 0.25);
+      border-radius: 0.9rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.87rem;
+    }
+
+    .hero-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #e0e8f9;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+
+    .hero-card li::before {
+      content: "• ";
+      color: #fbd38d;
+    }
+
+    main {
+      padding: 2.5rem 0 3rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--color-primario);
+      border-bottom: 2px solid var(--color-borde);
+      padding-bottom: 0.25rem;
+    }
+
+    .texto {
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: var(--color-card);
+      border-radius: 0.8rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--color-borde);
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+      color: var(--color-primario);
+    }
+
+    .card .etiqueta {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      background-color: #e0e8f9;
+      color: #102a43;
+      margin-bottom: 0.2rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      flex-grow: 1;
+    }
+
+    .card a {
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: var(--color-secundario);
+      margin-top: 0.3rem;
+      align-self: flex-start;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .lista-simple {
+      font-size: 0.95rem;
+      padding-left: 1.2rem;
+    }
+
+    .lista-simple li {
+      margin-bottom: 0.25rem;
+    }
+
+    .contacto {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .contacto-datos p {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contacto-datos a {
+      color: var(--color-secundario);
+      text-decoration: none;
+    }
+
+    .contacto-datos a:hover {
+      text-decoration: underline;
+    }
+
+    .contacto-nota {
+      font-size: 0.85rem;
+      color: #52606d;
+      background-color: #e4efff;
+      border-radius: 0.6rem;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid #bcccdc;
+    }
+
+    footer {
+      border-top: 1px solid #d8e2ec;
+      padding: 1rem 0;
+      font-size: 0.8rem;
+      color: #52606d;
+      background-color: #e4ebf5;
+    }
+
+    footer .contenedor {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .contacto {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="contenedor">
+      <div class="topbar">
+        <div>
+          <div class="marca">Página académica personal</div>
+        </div>
+        <nav aria-label="Navegación principal">
+          <ul>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#docencia">Docencia</a></li>
+            <li><a href="#proyectos-academicos">Proyectos académicos</a></li>
+            <li><a href="#proyectos-personales">Proyectos personales</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Lucas Apellido</h1>
+          <h2>Físico · Profesor de Física y Matemática · Universidad Nacional de Tierra del Fuego</h2>
+          <p>
+            Esta es mi página académica personal. Aquí concentro información sobre mis
+            actividades de docencia, proyectos de investigación y desarrollos personales
+            vinculados a ciencia, tecnología y juegos de mesa.
+          </p>
+          <div class="hero-meta">
+            <span>📍 Ushuaia, Tierra del Fuego (Argentina)</span>
+            <span>🏛️ UNTDF</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Resumen rápido">
+          <h3>Accesos rápidos</h3>
+          <ul>
+            <li><a href="#docencia" style="color:#f6e05e;">Materias que dicto</a></li>
+            <li><a href="#proyectos-academicos" style="color:#f6e05e;">Proyectos de investigación</a></li>
+            <li><a href="#proyectos-personales" style="color:#f6e05e;">Proyectos personales y juegos de mesa</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p class="texto">
+        Soy físico y profesor universitario en la Universidad Nacional de Tierra del Fuego.
+        Mi trabajo se centra en la enseñanza de la física y la matemática, el desarrollo de
+        proyectos de investigación y extensión, y la creación de propuestas lúdicas vinculadas
+        a la educación y la ciencia.
+      </p>
+      <p class="texto">
+        En esta página podés encontrar material para estudiantes, descripciones de mis proyectos
+        en curso y enlaces a recursos que utilizo en mis clases.
+      </p>
+    </section>
+
+    <!-- DOCENCIA -->
+    <section id="docencia">
+      <h2>Docencia</h2>
+      <p class="texto">
+        A continuación se listan las materias que dicto regularmente. Cada tarjeta puede enlazar
+        a un aula virtual, repositorio de materiales, o programa de la asignatura.
+      </p>
+
+      <div class="grid">
+        <!-- Materia 1 -->
+        <article class="card">
+          <span class="etiqueta">Grado – Ingeniería / Ciencias</span>
+          <h3>Física I</h3>
+          <p>
+            Introducción a la mecánica clásica: cinemática, dinámica, trabajo y energía,
+            impulso y cantidad de movimiento. Enfoque en resolución de problemas y
+            construcción de modelos.
+          </p>
+          <!-- REEMPLAZAR href="#" por tu link real -->
+          <a href="#" target="_blank" rel="noopener">Ir al aula / materiales</a>
+        </article>
+
+        <!-- Materia 2 -->
+        <article class="card">
+          <span class="etiqueta">Grado – Ingeniería</span>
+          <h3>Matemática I</h3>
+          <p>
+            Funciones reales, límites, derivadas e integrales. Aplicaciones al análisis
+            de fenómenos físicos y modelos de ingeniería.
+          </p>
+          <a href="#" target="_blank" rel="noopener">Ir al aula / materiales</a>
+        </article>
+
+        <!-- Materia 3 -->
+        <article class="card">
+          <span class="etiqueta">Grado – Ingeniería</span>
+          <h3>Matemática II</h3>
+          <p>
+            Álgebra lineal y ecuaciones diferenciales. Énfasis en el uso de herramientas
+            matemáticas para sistemas físicos y problemas de ingeniería.
+          </p>
+          <a href="#" target="_blank" rel="noopener">Ir al aula / materiales</a>
+        </article>
+
+        <!-- Podés duplicar esta estructura para más materias -->
+      </div>
+    </section>
+
+    <!-- PROYECTOS ACADÉMICOS -->
+    <section id="proyectos-academicos">
+      <h2>Proyectos académicos y de investigación</h2>
+      <p class="texto">
+        Aquí se presentan algunos de los proyectos académicos y de investigación en los que
+        he participado o que coordino actualmente.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <span class="etiqueta">Investigación – Oceanografía</span>
+          <h3>Boyas derivantes para el Canal Beagle</h3>
+          <p>
+            Desarrollo de boyas derivantes de bajo costo para el estudio de las corrientes
+            en el Canal Beagle y áreas cercanas. El proyecto integra diseño, electrónica,
+            impresión 3D y análisis de datos.
+          </p>
+          <a href="#" target="_blank" rel="noopener">Más información / documentación</a>
+        </article>
+
+        <article class="card">
+          <span class="etiqueta">Extensión universitaria</span>
+          <h3>Jugar es cosa seria</h3>
+          <p>
+            Proyecto de extensión que utiliza juegos de mesa modernos como herramienta para
+            la enseñanza y la vinculación entre la universidad, las escuelas y la comunidad.
+          </p>
+          <a href="#" target="_blank" rel="noopener">Descripción del proyecto</a>
+        </article>
+
+        <!-- Agregar más proyectos si lo necesitás -->
+      </div>
+    </section>
+
+    <!-- PROYECTOS PERSONALES -->
+    <section id="proyectos-personales">
+      <h2>Proyectos personales</h2>
+      <p class="texto">
+        Además de la actividad académica formal, desarrollo proyectos personales vinculados a
+        juegos de mesa, desarrollo de materiales didácticos y herramientas digitales.
+      </p>
+
+      <ul class="lista-simple">
+        <li>
+          <strong>Diseño de juegos de mesa:</strong> creación y adaptación de juegos con fines
+          recreativos y educativos, incluyendo prototipos inspirados en contextos locales.
+        </li>
+        <li>
+          <strong>Laboratorio virtual de física:</strong> desarrollo de pequeñas aplicaciones
+          interactivas para apoyar la enseñanza de la cinemática y otras áreas de la física.
+        </li>
+        <li>
+          <strong>Materiales abiertos para docentes:</strong> apuntes, guías y recursos diseñados
+          para ser reutilizados y adaptados por otros docentes.
+        </li>
+      </ul>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="contacto">
+        <div class="contacto-datos">
+          <p><strong>Correo institucional:</strong>
+            <!-- Cambiar por tu correo real -->
+            <a href="mailto:lucas.apellido@untdf.edu.ar">lucas.apellido@untdf.edu.ar</a>
+          </p>
+          <p><strong>Afiliación:</strong> Universidad Nacional de Tierra del Fuego</p>
+          <p><strong>Ciudad:</strong> Ushuaia, Tierra del Fuego, Argentina</p>
+
+          <p style="margin-top:0.6rem;"><strong>Perfiles académicos:</strong></p>
+          <p>
+            <!-- Cambiar los # por tus enlaces reales -->
+            ORCID: <a href="#" target="_blank" rel="noopener">Ver perfil</a><br>
+            Google Scholar: <a href="#" target="_blank" rel="noopener">Ver perfil</a><br>
+            GitHub: <a href="#" target="_blank" rel="noopener">Ver repositorios</a>
+          </p>
+        </div>
+
+        <div class="contacto-nota">
+          <strong>Nota para estudiantes:</strong><br>
+          Para consultas sobre materias (programas, evaluaciones, trabajos prácticos), por favor
+          indicá tu nombre completo, carrera y comisión en el asunto del correo. Siempre que sea
+          posible, utilizá también el aula virtual correspondiente.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <div>
+        © <span id="anio-actual"></span> Lucas Apellido – Página académica personal.
+      </div>
+      <div>
+        Sitio estático construido con HTML + CSS y hospedado en GitHub Pages.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Actualiza automáticamente el año en el pie de página
+    document.getElementById("anio-actual").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
