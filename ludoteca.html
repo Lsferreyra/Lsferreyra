@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ludoteca Universitaria UNTDF – Proyecto de Extensión</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Proyecto de extensión de la Universidad Nacional de Tierra del Fuego: ludoteca universitaria y jornadas de juegos de mesa con escuelas secundarias."
-  />
+  <meta charset="UTF-8">
+  <title>Ludoteca Universitaria UNTDF – Jugar es cosa seria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ludoteca Universitaria UNTDF - Proyecto de extensión, juegos de mesa, matemática, impresión 3D y vínculo con escuelas secundarias.">
   <style>
     :root {
-      --color-primario: #143d73;
-      --color-secundario: #f4f6fb;
-      --color-acento: #f0a500;
-      --color-texto: #222;
-      --max-width: 1100px;
+      --bg: #f5f5f7;
+      --bg-alt: #ffffff;
+      --primary: #004b6e;
+      --primary-soft: #e0f0f7;
+      --accent: #f39c12;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --border-soft: #dddddd;
+      --radius: 12px;
+      --shadow-soft: 0 4px 15px rgba(0,0,0,0.06);
     }
 
     * {
@@ -23,1020 +25,742 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      color: var(--color-texto);
-      background-color: #ffffff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
-    header {
-      background: linear-gradient(
-        135deg,
-        var(--color-primario),
-        #0b2646
-      );
-      color: white;
-      padding: 1.5rem 1rem 2.5rem;
-    }
-
-    .header-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: baseline;
-    }
-
-    .brand span {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
-    h1 {
-      font-size: 1.9rem;
-      margin: 0;
-    }
-
-    header p {
-      margin: 0.25rem 0 0;
-      max-width: 650px;
-      font-size: 0.98rem;
-    }
-
-    nav {
-      background: #0f2d54;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      padding: 0.4rem 1rem;
-    }
-
-    nav a {
-      color: #e7edf7;
-      text-decoration: none;
-      font-size: 0.9rem;
-      padding: 0.4rem 0.7rem;
-      border-radius: 999px;
-      transition: background 0.15s ease, color 0.15s ease;
-      white-space: nowrap;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 1.5rem auto 2.5rem;
-      padding: 0 1rem;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
-    }
-
-    section h2 {
-      font-size: 1.4rem;
-      margin: 0 0 0.6rem;
-      color: var(--color-primario);
-      border-left: 4px solid var(--color-acento);
-      padding-left: 0.5rem;
-    }
-
-    section h3 {
-      font-size: 1.1rem;
-      margin-top: 1.4rem;
-      color: #333;
-    }
-
-    .resumen {
-      background: var(--color-secundario);
-      border-radius: 0.75rem;
-      padding: 1rem 1.2rem;
-      border: 1px solid #d9e1f1;
-    }
-
-    .resumen strong {
-      color: var(--color-primario);
-    }
-
-    ul {
-      padding-left: 1.2rem;
-      margin: 0.4rem 0 0.6rem;
-    }
-
-    li {
-      margin-bottom: 0.3rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-top: 0.8rem;
-    }
-
-    .card {
-      border-radius: 0.75rem;
-      border: 1px solid #e0e5f0;
-      padding: 1rem 1rem 0.9rem;
-      background: #fff;
-    }
-
-    .card h3 {
-      margin-top: 0;
-    }
-
-    .pill {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      background: #eef2fb;
-      color: #334;
-      margin-bottom: 0.4rem;
-    }
-
-    .taglist {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      background: #f3f5fb;
-      border: 1px solid #dde2f0;
-    }
-
-    .cronograma-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    .cronograma-table th,
-    .cronograma-table td {
-      border: 1px solid #dde2f0;
-      padding: 0.4rem 0.5rem;
-      vertical-align: top;
-    }
-
-    .cronograma-table th {
-      background: #f5f7fc;
-    }
-
-    .highlight {
-      background: #fff8e6;
-      border-left: 3px solid var(--color-acento);
-      padding: 0.75rem 0.9rem;
-      border-radius: 0.6rem;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      border-top: 1px solid #dde2f0;
-      padding: 1.1rem 1rem 1.6rem;
-      font-size: 0.85rem;
-      background: #fafbff;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      color: #666;
-    }
-
     a {
-      color: var(--color-primario);
+      color: var(--primary);
+      text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    .media-embed {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-      margin-top: 0.8rem;
+    header.hero {
+      background: linear-gradient(135deg, #002b45, #005b8f);
+      color: #fff;
+      padding: 2.5rem 1.25rem 3rem;
     }
 
-    .media-embed iframe {
+    .container {
       width: 100%;
-      min-height: 220px;
-      border: none;
-      border-radius: 0.75rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 640px) {
-      header {
-        padding-bottom: 2rem;
-      }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
 
-      h1 {
-        font-size: 1.55rem;
-      }
+    .hero-title {
+      font-size: 2.1rem;
+      margin: 0;
+    }
 
-      nav a {
-        font-size: 0.83rem;
+    .hero-subtitle {
+      font-size: 1.05rem;
+      max-width: 700px;
+      color: #e8f4fb;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    nav {
+      background-color: #ffffff;
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .nav-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      background-color: var(--primary-soft);
+      text-decoration: none;
+    }
+
+    main {
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      color: var(--primary);
+    }
+
+    section h3 {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .card {
+      background-color: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      margin-bottom: 1rem;
+    }
+
+    .card-highlight {
+      border-left: 4px solid var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
       }
+      .hero-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .pill {
+      background-color: var(--primary-soft);
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      border: 1px solid rgba(0, 75, 110, 0.15);
+    }
+
+    .timeline {
+      border-left: 2px solid var(--primary-soft);
+      padding-left: 1rem;
+      margin-left: 0.3rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.13rem;
+      top: 0.25rem;
+      width: 10px;
+      height: 10px;
+      background-color: var(--primary);
+      border-radius: 50%;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 6px;
+      margin-left: 0.25rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background-color: var(--bg-alt);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      margin-top: 0.6rem;
+    }
+
+    thead {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    th, td {
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid var(--border-soft);
+      text-align: left;
+    }
+
+    tbody tr:hover {
+      background-color: var(--primary-soft);
+    }
+
+    .media-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .media-list li {
+      margin-bottom: 0.4rem;
+      padding-left: 1.1rem;
+      position: relative;
+      font-size: 0.9rem;
+    }
+
+    .media-list li::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 0.7rem;
+      color: var(--accent);
+    }
+
+    footer {
+      background-color: #111827;
+      color: #e5e7eb;
+      padding: 1.5rem 1.25rem;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #93c5fd;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <span>Universidad Nacional de Tierra del Fuego</span>
-        <span>•</span>
-        <span>Proyecto de extensión</span>
-      </div>
-      <div>
-        <h1>Ludoteca Universitaria UNTDF</h1>
-        <p>
-          Juegos de mesa para acercar la universidad a las escuelas secundarias
-          y promover el juego como herramienta pedagógica, cultural y de
-          inclusión educativa.
-        </p>
-      </div>
-    </div>
-  </header>
 
-  <nav>
-    <div class="nav-inner">
-      <a href="#resumen">Inicio</a>
-      <a href="#fundamentacion">Fundamentación</a>
-      <a href="#fundamentacion-pedagogica">Fundamentación pedagógica</a>
-      <a href="#antecedentes">Antecedentes</a>
+<header class="hero">
+  <div class="container hero-content">
+    <div>
+      <h1 class="hero-title">Ludoteca Universitaria UNTDF – “Jugar es cosa seria”</h1>
+      <p class="hero-subtitle">
+        Un proyecto de extensión que utiliza los juegos de mesa modernos como puerta de entrada a la universidad,
+        para acercar a las escuelas secundarias, visibilizar la vida universitaria y abrir caminos en matemática y tecnologías 3D.
+      </p>
+    </div>
+    <div class="hero-badges">
+      <span class="badge">Extensión universitaria</span>
+      <span class="badge">Juegos de mesa modernos</span>
+      <span class="badge">Escuelas secundarias</span>
+      <span class="badge">Matemática e ingreso</span>
+      <span class="badge">Diseño e impresión 3D</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-title">Ludoteca UNTDF</div>
+    <div class="nav-links">
+      <a href="#presentacion">Presentación</a>
+      <a href="#proyecto-extension">Proyecto de extensión</a>
       <a href="#ludoteca">Ludoteca</a>
-      <a href="#jornadas">Jornadas con escuelas</a>
-      <a href="#web-videos">Web &amp; tutoriales</a>
-      <a href="#prensa">Prensa y medios</a>
-      <a href="#equipo">Equipo</a>
+      <a href="#escuelas">Escuelas secundarias</a>
+      <a href="#matematica">Matemática e ingreso</a>
+      <a href="#taller3d">Taller 3D</a>
+      <a href="#inventario">Inventario</a>
+      <a href="#difusion">Difusión en medios</a>
+      <a href="#recursos">Recursos</a>
       <a href="#contacto">Contacto</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <main>
-    <!-- RESUMEN -->
-    <section id="resumen">
-      <h2>Resumen del proyecto</h2>
-      <div class="resumen">
+<main class="container">
+
+  <!-- PRESENTACIÓN GENERAL -->
+  <section id="presentacion">
+    <h2>Presentación</h2>
+    <p class="section-subtitle">
+      ¿Por qué una ludoteca universitaria? ¿Por qué en la UNTDF? ¿Y qué tiene que ver todo esto con matemática y tecnología?
+    </p>
+    <div class="grid">
+      <div class="card card-highlight">
         <p>
-          La <strong>Ludoteca Universitaria UNTDF</strong> es un proyecto de
-          extensión que busca dar continuidad a las iniciativas previas de
-          juegos de mesa en la universidad, aprovechando el fondo de juegos ya
-          adquirido y generando nuevas formas de vínculo con las escuelas
-          secundarias de la región.
+          La <strong>Ludoteca Universitaria UNTDF</strong> nace en el marco del proyecto de extensión
+          <strong>“Jugar es cosa seria”</strong>, que permitió adquirir una colección de juegos de mesa modernos
+          y desarrollar actividades abiertas con estudiantes universitarios y de escuelas secundarias.
         </p>
         <p>
-          El proyecto se organiza en torno a tres ejes principales:
+          Esta nueva etapa del proyecto se propone dar continuidad a ese trabajo, potenciándolo en tres direcciones:
         </p>
         <ul>
-          <li>
-            La creación de una <strong>ludoteca visible y accesible</strong>,
-            ubicada en un espacio de circulación (como el SUM del edificio
-            nuevo), con un sistema de préstamo semanal para estudiantes de la
-            UNTDF.
-          </li>
-          <li>
-            La organización de <strong>jornadas periódicas de juegos de mesa con
-            escuelas secundarias</strong>, donde estudiantes universitarios
-            actúan como monitores, enseñando a jugar y acompañando recorridos
-            por la universidad.
-          </li>
-          <li>
-            El desarrollo de una <strong>página web y materiales
-            audiovisuales</strong> (videos tutoriales) que fundamenten la
-            propuesta, documenten la experiencia y ofrezcan recursos pedagógicos
-            a docentes de nivel medio.
-          </li>
+          <li><strong>Hospitalidad universitaria:</strong> usar el juego como excusa para que las y los jóvenes entren a la universidad,
+              la recorran, la conozcan y la sientan como un espacio posible.</li>
+          <li><strong>Matemática e ingreso:</strong> trabajar habilidades lógico-matemáticas y difundir los dispositivos de
+              nivelación en matemática de la UNTDF.</li>
+          <li><strong>Cultura maker:</strong> acercar a estudiantes de secundaria al diseño y la impresión 3D mediante la creación
+              de componentes para juegos de mesa.</li>
         </ul>
       </div>
-    </section>
+      <div class="card">
+        <h3>Datos rápidos del proyecto</h3>
+        <ul class="media-list">
+          <li><strong>Institución:</strong> UNTDF – Sede Ushuaia.</li>
+          <li><strong>Linaje:</strong> Proyecto SPU “Jugar es cosa seria” (ludoteca + jornadas previas).</li>
+          <li><strong>Áreas involucradas:</strong> Ingeniería / Matemática, Educación, Medios Audiovisuales, carreras tecnológicas.</li>
+          <li><strong>Destinatarios:</strong> estudiantes universitarios, estudiantes de escuelas secundarias, docentes y familias.</li>
+        </ul>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.6rem;">
+          Este sitio funciona como bitácora y espacio de documentación del proyecto. Aquí se presentan la
+          fundamentación pedagógica, el funcionamiento de la ludoteca, las jornadas con escuelas, el taller 3D
+          y los materiales producidos en el marco de la extensión universitaria.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <!-- FUNDAMENTACION GENERAL -->
-    <section id="fundamentacion">
-      <h2>Fundamentación</h2>
+  <!-- PROYECTO DE EXTENSIÓN -->
+  <section id="proyecto-extension">
+    <h2>Proyecto de extensión 2025</h2>
+    <p class="section-subtitle">
+      “Ludoteca Universitaria UNTDF: juegos de mesa, matemática y tecnologías 3D para acercar la universidad a las escuelas secundarias”.
+    </p>
+    <div class="card">
+      <h3>Idea central</h3>
       <p>
-        Los juegos de mesa modernos son una herramienta potente para trabajar
-        competencias académicas, procesos cognitivos y habilidades
-        socioemocionales. Permiten desarrollar la concentración, la memoria, la
-        resolución de problemas y la toma de decisiones, al tiempo que
-        promueven la comunicación, la negociación y el trabajo en equipo.
-      </p>
-      <p>
-        En el ámbito educativo, el juego se entiende como una
-        <strong>experiencia cultural y pedagógica</strong>, no sólo como
-        entretenimiento. Proponer actividades lúdicas en la universidad implica
-        habilitar espacios de encuentro entre estudiantes, docentes y comunidad,
-        donde se construyen vínculos, se exploran reglas y se ensayan formas de
-        cooperación y conflicto de manera simbólica.
-      </p>
-      <p>
-        La UNTDF cuenta actualmente con un conjunto de juegos adquiridos en
-        proyectos de extensión anteriores. Sin embargo, estos recursos se
-        encuentran subutilizados por carecer de un dispositivo estable de uso y
-        visibilización. Al mismo tiempo, existe la necesidad de
-        <strong>fortalecer los puentes entre la escuela secundaria y la
-        universidad</strong>, a través de experiencias periódicas, significativas
-        y disfrutables.
-      </p>
-      <p>
-        Invitar a las escuelas secundarias a “venir a jugar a la universidad”
-        supone:
+        El proyecto entiende a los <strong>juegos de mesa como medio, no como fin</strong>. El objetivo no es sólo “jugar por jugar”,
+        sino usar el juego como un dispositivo de hospitalidad para:
       </p>
       <ul>
-        <li>Acercar la vida universitaria de una forma amigable y hospitalaria.</li>
-        <li>
-          Vincular el juego con la <strong>elección de estudios superiores</strong>
-          y la continuidad de las trayectorias educativas.
-        </li>
-        <li>
-          Reforzar el <strong>derecho al juego</strong> como parte de la cultura
-          y la educación.
-        </li>
+        <li>Acercar a estudiantes de escuelas secundarias a la UNTDF.</li>
+        <li>Visibilizar qué se hace en la universidad: carreras, laboratorios, proyectos, comunidades.</li>
+        <li>Abrir conversaciones sobre <strong>matemática, ingeniería, ciencia y tecnología</strong> en un clima de disfrute.</li>
       </ul>
-    </section>
+      <div class="pill-list" style="margin-top:0.5rem;">
+        <span class="pill">Juego como puerta de entrada</span>
+        <span class="pill">Visibilización institucional</span>
+        <span class="pill">Vínculo escuela–universidad</span>
+      </div>
+    </div>
 
-    <!-- FUNDAMENTACION PEDAGOGICA ESPECIFICA -->
-    <section id="fundamentacion-pedagogica">
-      <h2>Fundamentación pedagógica</h2>
-
-      <p>
-        El proyecto se apoya en una línea de trabajo ya desarrollada en
-        <em>Jugar es cosa seria</em>, donde se articulan aportes de la psicología
-        del pensamiento, la pedagogía crítica y la educación del pensamiento
-        lógico con el uso de juegos de mesa modernos como dispositivo educativo.
-      </p>
-
-      <h3>Juego, pensamiento e inteligencia</h3>
-      <p>
-        Diversos autores han mostrado que la inteligencia no puede reducirse a
-        una única dimensión ni a la mera acumulación de información. Trabajos
-        clásicos como los de Binet y Simon, Piaget, Gardner o Perkins destacan
-        que el desarrollo intelectual implica tanto capacidades de base como
-        <strong>estrategias cognitivas</strong> y hábitos de pensamiento que
-        pueden ser promovidos deliberadamente en contextos educativos. Desde
-        esta perspectiva, enseñar no es sólo transmitir datos, sino
-        <strong>ayudar a aprender</strong> y acompañar la construcción de
-        herramientas para “aprender a pensar”.
-      </p>
-      <p>
-        El proyecto retoma esa tradición para proponer que el juego de mesa sea
-        un contexto privilegiado donde se entrenan, de forma situada y
-        significativa:
-      </p>
-      <ul>
-        <li>La lectura y reinterpretación de reglas y sistemas simbólicos.</li>
-        <li>La formulación de estrategias y la anticipación de consecuencias.</li>
-        <li>El análisis de posiciones, patrones y configuraciones cambiantes.</li>
-        <li>
-          El manejo de la frustración y la toma de decisiones bajo presión
-          emocional.
-        </li>
-      </ul>
-
-      <h3>Del ajedrez a los juegos modernos: pensar jugando</h3>
-      <p>
-        La literatura sobre ajedrez y cognición mostró hace décadas que los
-        procesos que se ponen en juego al analizar una posición compleja son
-        análogos a los que se activan frente a problemas del mundo real:
-        planificación, evaluación de alternativas, reconocimiento de patrones,
-        revisión de hipótesis. Investigaciones posteriores ampliaron esta mirada
-        a otros juegos combinatorios y evidenciaron mejoras en atención,
-        memoria, lectura y rendimiento académico cuando se trabaja
-        sistemáticamente con juegos de estrategia.
-      </p>
-      <p>
-        Los juegos de mesa modernos, con sus diversos niveles de dificultad y
-        sus mecánicas variadas (cooperativas, competitivas, asimétricas, de
-        gestión de recursos, etc.), permiten recrear esas situaciones de
-        pensamiento complejo en contextos lúdicos, accesibles y altamente
-        motivadores para adolescentes y jóvenes. La propuesta de la ludoteca
-        universitaria se inscribe en este marco: crear un entorno donde
-        <strong>pensar, decidir, equivocarse y volver a intentar</strong> sean
-        parte natural de la experiencia de juego.
-      </p>
-
-      <h3>Aprender enseñando: el rol de los estudiantes instructores</h3>
-      <p>
-        Una decisión pedagógica central del proyecto es colocar a los
-        estudiantes universitarios en el rol de <strong>instructores de juegos</strong>.
-        Para coordinar una mesa, explicar un reglamento con sus propias
-        palabras y acompañar a quienes se incorporan, las y los estudiantes
-        necesitan haber interiorizado las reglas, comprendido la lógica del
-        juego y anticipado dudas frecuentes.
-      </p>
-      <p>
-        Esta dinámica de <strong>aprender enseñando</strong> tiene efectos
-        formativos múltiples:
-      </p>
-      <ul>
-        <li>Fortalece la comprensión profunda de las reglas y dinámicas lógicas.</li>
-        <li>
-          Desarrolla habilidades de comunicación, escucha, liderazgo y manejo de
-          grupo.
-        </li>
-        <li>
-          Invita a reflexionar sobre los propios modos de aprender y sobre cómo
-          acompañar el aprendizaje de otros.
-        </li>
-      </ul>
-
-      <h3>Universidad, juego y trayectorias educativas</h3>
-      <p>
-        Finalmente, el juego se concibe aquí como <strong>puerta de entrada a la
-        universidad</strong>. En las jornadas con escuelas, la experiencia lúdica
-        se articula con la visita a laboratorios, talleres y aulas, y con el
-        diálogo directo con estudiantes y docentes de la UNTDF. El objetivo no es
-        sólo “mostrar las carreras”, sino ofrecer una vivencia concreta de la
-        vida universitaria como espacio donde se aprende, se investiga, se
-        debate y también se juega.
-      </p>
-      <p>
-        De este modo, la ludoteca y las jornadas lúdicas contribuyen a quebrar
-        la imagen distante o meramente formal de la universidad, habilitando a
-        jóvenes de la región a imaginarse como <strong>futuros estudiantes
-        universitarios</strong> y como protagonistas de proyectos colectivos de
-        conocimiento y transformación social.
-      </p>
-    </section>
-
-    <!-- ANTECEDENTES: JUGAR ES COSA SERIA -->
-    <section id="antecedentes">
-      <h2>Antecedentes: proyecto “Jugar es cosa seria”</h2>
-
-      <p>
-        La Ludoteca Universitaria UNTDF se apoya directamente en la experiencia
-        desarrollada en el proyecto de extensión <strong>“Jugar es cosa seria”</strong>,
-        financiado por la SPU, que consolidó un espacio de encuentros lúdicos
-        orientado a estudiantes universitarios y de nivel medio.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <span class="pill">Ludoteca itinerante</span>
-          <h3>Una colección en movimiento</h3>
+    <div class="card">
+      <h3>Ejes del proyecto</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>Ludoteca universitaria visible</strong>
           <p>
-            En el marco de <em>Jugar es cosa seria</em> se adquirieron más de
-            veinte juegos de mesa modernos, que se sumaron a una colección
-            previa hasta conformar una ludoteca de alrededor de
-            <strong>50 títulos diferentes</strong>. Los juegos fueron
-            inventariados y prestados a estudiantes participantes, quienes se
-            los llevaban por períodos bimensuales para estudiarlos, jugarlos en
-            sus entornos y prepararse para enseñarlos en eventos abiertos.
-          </p>
-          <p>
-            Esta circulación constante se volvió un indicador cualitativo del
-            compromiso y la curiosidad de los estudiantes, que solicitaban
-            nuevos juegos después de cada jornada.
+            Instalación de una <em>vitrina con llave</em> en un espacio de circulación (SUM del edificio nuevo), donde se exhibe
+            la colección de juegos. Una vez por semana se abre la ludoteca y se gestiona el <strong>préstamo de juegos
+            a estudiantes universitarios</strong> por una semana.
           </p>
         </div>
-
-        <div class="card">
-          <span class="pill">Comunidad de prácticas</span>
-          <h3>Estudiantes instructores y encuentros regulares</h3>
+        <div class="timeline-item">
+          <strong>Monitores lúdicos universitarios</strong>
           <p>
-            El proyecto organizó <strong>jornadas abiertas de juegos</strong> en
-            la UNTDF y un evento específico en el Colegio Técnico Provincial
-            Antonio Martín Marte, donde estudiantes universitarios cumplieron el
-            rol de instructores, enseñando juegos a estudiantes de nivel medio.
-          </p>
-          <p>
-            Además de los eventos formales, surgieron <strong>encuentros
-            informales</strong> impulsados por los propios estudiantes, tanto en
-            la universidad como en domicilios particulares. Estas instancias
-            espontáneas muestran la apropiación de la propuesta y su capacidad
-            de generar comunidad más allá del marco estrictamente institucional.
+            A las y los estudiantes que usan la ludoteca se les invita a sumarse como <strong>monitores</strong>:
+            son quienes explican juegos, coordinan mesas y acompañan a los grupos de escuelas que visitan la universidad.
           </p>
         </div>
-
-        <div class="card">
-          <span class="pill">Impacto y proyección</span>
-          <h3>Transformaciones y nuevas iniciativas</h3>
+        <div class="timeline-item">
+          <strong>Jornadas con escuelas secundarias</strong>
           <p>
-            La experiencia produjo cambios visibles en estudiantes de primer
-            año, que pasaron de la timidez inicial a desempeñarse con soltura y
-            liderazgo como instructores de juego. Algunos de ellos asumieron
-            luego roles de tutores académicos en sus carreras, impulsados por
-            esa práctica de enseñar en contextos lúdicos.
+            Con frecuencia mensual/trisemanal se organizan <strong>jornadas de juegos de mesa</strong> en la UNTDF, donde grupos
+            de escuelas secundarias son recibidos por estudiantes universitarios, juegan, conocen el edificio y recorren
+            laboratorios, talleres y aulas.
           </p>
+        </div>
+        <div class="timeline-item">
+          <strong>Matemática e ingreso universitario</strong>
           <p>
-            Como efecto derivado, surgió la iniciativa <strong>“Ushuaia
-            Lúdica”</strong>, un proyecto autónomo de jóvenes que continuaron
-            organizando jornadas en bares y espacios sociales de la ciudad,
-            combinando encuentros lúdicos, redes sociales y hasta componentes
-            comerciales de venta y alquiler de juegos.
+            En estas jornadas se incorporan <strong>micro-actividades de matemática</strong>, se presentan los dispositivos de
+            nivelación de la UNTDF y se propone un <strong>taller de matemática para el ingreso</strong> destinado a 5.º y 6.º año.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <strong>Taller de diseño e impresión 3D</strong>
+          <p>
+            A partir del interés por los juegos, se invita a estudiantes de secundaria a un taller en el que diseñan e imprimen
+            <strong>piezas para juegos de mesa</strong>, acercándose así a la geometría, el diseño digital y la ingeniería.
           </p>
         </div>
       </div>
-
-      <h3>Hacia la ludoteca física permanente</h3>
-      <p>
-        Uno de los aprendizajes centrales de <em>Jugar es cosa seria</em> fue la
-        necesidad de contar con un <strong>espacio físico visible y estable</strong>
-        para la colección de juegos y las actividades. La propuesta actual de
-        instalar una vitrina con llave en un área de circulación de la UNTDF y
-        organizar un sistema de préstamo regular surge directamente de esa
-        evaluación y se presenta como la continuación natural del camino
-        recorrido.
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.8rem;">
+        El texto completo del proyecto de extensión incluye la fundamentación pedagógica, objetivos, metodología,
+        cronograma y condiciones de implementación, y se presenta a la UNTDF como propuesta formal de extensión universitaria.
       </p>
-    </section>
+    </div>
+  </section>
 
-    <!-- LUDOTECA -->
-    <section id="ludoteca">
-      <h2>Ludoteca universitaria</h2>
+  <!-- LUDOTECA DENTRO DE LA UNIVERSIDAD -->
+  <section id="ludoteca">
+    <h2>La ludoteca en la UNTDF</h2>
+    <p class="section-subtitle">
+      Un mueble, una colección de juegos… y una excusa para encontrarnos.
+    </p>
+    <div class="card">
+      <h3>Ubicación y funcionamiento</h3>
+      <ul>
+        <li><strong>Ubicación:</strong> vitrina con llave en el SUM del edificio nuevo (u otro espacio visible de circulación).</li>
+        <li><strong>Frecuencia:</strong> apertura de la ludoteca <strong>una vez por semana</strong> en horario fijo.</li>
+        <li><strong>Préstamo:</strong> los juegos se prestan por una semana a estudiantes de la UNTDF, con registro y reglamento.</li>
+        <li><strong>Responsables:</strong> docente a cargo del proyecto + equipo de estudiantes monitores.</li>
+      </ul>
+      <p>
+        La ludoteca no es sólo un lugar donde se guardan juegos: es un <strong>punto de encuentro</strong> dentro de la universidad, 
+        un lugar donde se construye comunidad y desde donde se convoca a participar en las actividades con escuelas secundarias, 
+        en los talleres de matemática y en el taller de impresión 3D.
+      </p>
+    </div>
 
-      <div class="grid">
-        <div class="card">
-          <span class="pill">¿Qué es la ludoteca?</span>
-          <h3>Un espacio visible, cuidado y compartido</h3>
+    <div class="card">
+      <h3>Estudiantes monitores</h3>
+      <p>
+        A las y los estudiantes que usan la ludoteca se les propone un paso más:
+      </p>
+      <ul>
+        <li>Recibir una breve <strong>formación como monitores lúdicos</strong>.</li>
+        <li>Aprender a explicar y moderar juegos de mesa con grupos grandes.</li>
+        <li>Participar de las <strong>jornadas con escuelas secundarias</strong>.</li>
+        <li>Acompañar las experiencias de matemática y el taller 3D.</li>
+      </ul>
+      <p>
+        De este modo, el uso de la ludoteca se transforma en una experiencia de <strong>formación y compromiso</strong>
+        con la comunidad.
+      </p>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES CON ESCUELAS -->
+  <section id="escuelas">
+    <h2>Jornadas con escuelas secundarias</h2>
+    <p class="section-subtitle">
+      Venir a la universidad a jugar… y de paso conocerla por dentro.
+    </p>
+    <div class="card">
+      <h3>Formato de las jornadas</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>1. Bienvenida</strong>
+          <p>Presentación breve de la UNTDF, del proyecto de la ludoteca y de las carreras.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>2. Mesas de juego</strong>
           <p>
-            La ludoteca reúne los juegos de mesa adquiridos en proyectos de
-            extensión previos y nuevos juegos que se incorporen con el tiempo.
-            Estará ubicada en una <strong>vitrina con llave</strong> en un
-            espacio de circulación (por ejemplo, el SUM del edificio nuevo),
-            para que los juegos sean visibles para toda la comunidad.
+            Los grupos se distribuyen en diferentes mesas con juegos adecuados a la edad y cantidad de estudiantes.
+            Las y los monitores universitarios explican y moderan las partidas.
           </p>
         </div>
-
-        <div class="card">
-          <span class="pill">Préstamo de juegos</span>
-          <h3>¿Cómo funciona?</h3>
-          <ul>
-            <li>
-              Apertura de la ludoteca <strong>una vez por semana</strong> en
-              un día y horario fijo.
-            </li>
-            <li>
-              Préstamo de juegos por <strong>una semana</strong> para
-              estudiantes de la UNTDF.
-            </li>
-            <li>
-              Registro de usuarios y de la circulación de juegos, con un
-              reglamento sencillo de uso y cuidado.
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="pill">Estudiantes monitores</span>
-          <h3>Participar, aprender, enseñar</h3>
+        <div class="timeline-item">
+          <strong>3. Momento de matemática</strong>
           <p>
-            Las y los estudiantes interesados podrán sumarse como
-            <strong>monitores lúdicos</strong>. Su rol será:
+            Sobre la base de alguna situación del juego (dados, decisiones, recursos), se propone una breve
+            <strong>actividad de razonamiento</strong> que permite hablar de probabilidad, estrategia, lógica o representación gráfica.
           </p>
-          <ul>
-            <li>Acompañar la apertura de la ludoteca.</li>
-            <li>Enseñar a jugar a sus compañeros y compañeras.</li>
-            <li>
-              Facilitar las mesas de juego durante las jornadas con escuelas
-              secundarias.
-            </li>
-          </ul>
+        </div>
+        <div class="timeline-item">
+          <strong>4. Recorrido por la universidad</strong>
+          <p>
+            Visita guiada a laboratorios, talleres y aulas, mostrando espacios de estudio, investigación y desarrollo tecnológico.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <strong>5. Cierre</strong>
+          <p>
+            Entrega de material informativo de la UNTDF a estudiantes y docentes, y espacio para preguntas sobre carreras e ingreso.
+          </p>
         </div>
       </div>
+    </div>
+  </section>
 
-            <h3>Catálogo de juegos</h3>
+  <!-- MATEMÁTICA E INGRESO -->
+  <section id="matematica">
+    <h2>Juego, pensamiento y matemática</h2>
+    <p class="section-subtitle">
+      Un puente afectivo y cognitivo hacia la matemática universitaria.
+    </p>
+    <div class="card">
+      <h3>¿Por qué matemática?</h3>
       <p>
-        A continuación se presenta el inventario inicial de la ludoteca
-        universitaria. La dificultad está expresada en una escala de
-        <strong>0 a 10</strong> (0 = muy sencillo, 10 = muy complejo) y el tipo
-        de juego indica, de manera orientativa, el perfil principal de la
-        experiencia.
+        La experiencia en la UNTDF muestra que muchas y muchos estudiantes ingresan con <strong>dificultades importantes en matemática</strong>,
+        tanto en contenidos como en confianza, lo que afecta el rendimiento y la permanencia en carreras con fuerte componente cuantitativo.
       </p>
+      <p>
+        El proyecto de la ludoteca propone un camino complementario: <strong>empezar por el juego</strong>, trabajar ideas matemáticas
+        sencillas en ese contexto y luego invitar a sumarse a espacios más estructurados (cursos de nivelación, talleres de ingreso).
+      </p>
+    </div>
 
-      <table class="catalogo-table">
+    <div class="card">
+      <h3>Conexiones entre juegos y matemática</h3>
+      <ul>
+        <li><strong>Probabilidad e incertidumbre:</strong> tiradas de dados, mazos de cartas, gestión del riesgo.</li>
+        <li><strong>Optimización y planificación:</strong> gestión de recursos, elección entre alternativas limitadas.</li>
+        <li><strong>Lógica y deducción:</strong> juegos de información incompleta y roles ocultos.</li>
+        <li><strong>Representación espacial:</strong> colocación de losetas, patrones, caminos, grafos.</li>
+      </ul>
+      <p>
+        En las jornadas con escuelas se realizan <strong>micro-actividades</strong> donde, a partir de una situación de juego,
+        se discuten estas ideas con un lenguaje accesible… pero sin perder la conexión con la matemática que luego aparecerá
+        en la universidad.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Taller de matemática para el ingreso</h3>
+      <p>
+        Como proyección del proyecto, se propone un <strong>taller específico de matemática</strong> para estudiantes de 5.º y 6.º año,
+        articulado con los juegos de mesa:
+      </p>
+      <ul>
+        <li>Problemas de razonamiento, lectura de gráficos, proporciones y ecuaciones simples.</li>
+        <li>Ejemplos tomados de situaciones de juego (probabilidades, puntajes, decisiones óptimas).</li>
+        <li>Encuentros presenciales en la UNTDF, como preparación para el ingreso.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TALLER DE DISEÑO E IMPRESIÓN 3D -->
+  <section id="taller3d">
+    <h2>Taller de diseño e impresión 3D para juegos de mesa</h2>
+    <p class="section-subtitle">
+      De jugar con piezas… a diseñarlas y fabricarlas.
+    </p>
+    <div class="card">
+      <h3>¿En qué consiste el taller?</h3>
+      <p>
+        A partir del interés por los juegos de mesa, se invita a estudiantes de escuela secundaria a un
+        <strong>taller de diseño e impresión 3D</strong> en el que:
+      </p>
+      <ul>
+        <li>Conocen el funcionamiento y cuidado de una impresora 3D.</li>
+        <li>Aprenden nociones básicas de modelado (formas, medidas, escala, proporciones).</li>
+        <li>Diseñan e imprimen componentes para juegos de mesa (fichas, meeples, marcadores, elementos 3D).</li>
+        <li>Prueban las piezas en partidas reales y las ajustan según la experiencia de juego.</li>
+      </ul>
+      <p>
+        El taller funciona como una puerta de entrada a la <strong>cultura maker</strong> y a campos como la ingeniería, el diseño y la
+        tecnología, siempre en diálogo con la práctica lúdica.
+      </p>
+    </div>
+  </section>
+
+  <!-- INVENTARIO DE JUEGOS -->
+  <section id="inventario">
+    <h2>Inventario de juegos de la ludoteca</h2>
+    <p class="section-subtitle">
+      Colección proveniente del proyecto “Jugar es cosa seria” y proyectos asociados.
+    </p>
+    <div class="card">
+      <p>
+        La ludoteca cuenta con una colección de juegos de mesa modernos de diferentes tipos: familiares, party,
+        estratégicos, cooperativos, de deducción, de construcción de mazos, etc. A continuación se presenta el
+        listado actual, junto con un enlace a búsquedas en BoardGameGeek para ampliar la información.
+      </p>
+      <table>
         <thead>
           <tr>
             <th>Juego</th>
-            <th>Tipo</th>
-            <th>Dificultad<br />(0–10 aprox.)</th>
-            <th>BGG</th>
-            <th>Reseñas</th>
+            <th>Más información (BGG)</th>
           </tr>
         </thead>
         <tbody>
-      <tr data-name="Bienvenidos al Dungeon" data-type="Filler / push-your-luck" data-diff="2.5"></tr>
-      <tr data-name="Bunny Kingdom" data-type="Estrategia familiar (drafting, control de área)" data-diff="4.0"></tr>
-      <tr data-name="Carcassonne Safari" data-type="Colocación de losetas familiar" data-diff="4.0"></tr>
-      <tr data-name="Careta" data-type="Party / deducción ligera" data-diff="3.0"></tr>
-      <tr data-name="Carta Futbol Club" data-type="Cartas temático deportivo" data-diff="3.0"></tr>
-      <tr data-name="Catan" data-type="Clásico euro familiar" data-diff="4.5"></tr>
-      <tr data-name="Checkpoint Charlie" data-type="Deducción ligera" data-diff="3.0"></tr>
-      <tr data-name="Código Secreto" data-type="Party / palabras y asociación de ideas" data-diff="2.5"></tr>
-      <tr data-name="Conejos en el Huerto" data-type="Infantil / familiar ligero" data-diff="2.0"></tr>
-      <tr data-name="Cultivos Mutantes" data-type="Estrategia ligera (gestión de recursos)" data-diff="4.0"></tr>
-      <tr data-name="Descifra el Código" data-type="Lógico / deducción" data-diff="3.0"></tr>
-      <tr data-name="Dr. Eureka" data-type="Destreza y patrón visual" data-diff="2.0"></tr>
-      <tr data-name="Dragons" data-type="Cartas familiar" data-diff="3.0"></tr>
-      <tr data-name="Dungeon Academy" data-type="Roll & write en tiempo real" data-diff="3.0"></tr>
-      <tr data-name="Dungeon Raiders" data-type="Aventuras ligera / gestión de mano" data-diff="3.0"></tr>
-      <tr data-name="Dungeons and Drinks" data-type="Party temático / cartas" data-diff="3.5"></tr>
-      <tr data-name="El Camarero" data-type="Party / memoria y velocidad" data-diff="2.5"></tr>
-      <tr data-name="El Gran Libro de la Locura" data-type="Cooperativo, construcción de mazo" data-diff="4.5"></tr>
-      <tr data-name="Fantasma Blitz" data-type="Reflejos / velocidad" data-diff="1.5"></tr>
-      <tr data-name="Ishtar" data-type="Colocación de losetas, mayorías" data-diff="4.0"></tr>
-      <tr data-name="Kanagawa" data-type="Set collection, gestión de riesgo" data-diff="4.0"></tr>
-      <tr data-name="Kariba" data-type="Filler familiar" data-diff="2.0"></tr>
-      <tr data-name="King of Tokyo" data-type="Dados, monstruos, take-that" data-diff="2.5"></tr>
-      <tr data-name="Kingdomino" data-type="Drafting y colocación de losetas" data-diff="2.0"></tr>
-      <tr data-name="Kinmo" data-type="Cartas / deducción ligera" data-diff="3.0"></tr>
-      <tr data-name="Last Aurora" data-type="Estrategia media, carrera postapocalíptica" data-diff="6.0"></tr>
-      <tr data-name="Minecraft" data-type="Construcción de tablero familiar" data-diff="4.0"></tr>
-      <tr data-name="Montañas de la locura" data-type="Cooperativo con comunicación limitada" data-diff="4.5"></tr>
-      <tr data-name="Munchkin" data-type="Cartas humorísticas, take-that" data-diff="3.0"></tr>
-      <tr data-name="Musa" data-type="Party de pistas visuales" data-diff="2.0"></tr>
-      <tr data-name="Olvir" data-type="Estrategia ligera / temática nórdica" data-diff="4.0"></tr>
-      <tr data-name="Papillon" data-type="Set collection y colocación 3D" data-diff="4.5"></tr>
-      <tr data-name="Pirámide del Sol" data-type="Cartas familiar ligera" data-diff="3.0"></tr>
-      <tr data-name="Pistas Cruzadas" data-type="Party cooperativo de palabras" data-diff="2.5"></tr>
-      <tr data-name="Próxima Estación Londres" data-type="Flip & write, rutas" data-diff="3.5"></tr>
-      <tr data-name="Rock Paper Wizard" data-type="Party caótico / selección simultánea" data-diff="3.0"></tr>
-      <tr data-name="Saboteur" data-type="Roles ocultos, faroleo" data-diff="3.0"></tr>
-      <tr data-name="Schotten Totten" data-type="Cartas tácticas para 2 jugadores" data-diff="3.0"></tr>
-      <tr data-name="Sonora" data-type="Flick & write" data-diff="4.0"></tr>
-      <tr data-name="Spyfall" data-type="Party de roles ocultos" data-diff="2.5"></tr>
-      <tr data-name="Star Wars Rebelión vs Imperio" data-type="Cartas tácticas para 2 jugadores" data-diff="4.0"></tr>
-      <tr data-name="Taco Atrás" data-type="Party de reflejos" data-diff="1.5"></tr>
-      <tr data-name="Tiny Epic Kingdoms" data-type="4X compacto, estrategia media" data-diff="5.5"></tr>
-      <tr data-name="Treasure Hunter" data-type="Drafting familiar" data-diff="4.0"></tr>
-      <tr data-name="Tsukiji" data-type="Subastas, oferta y demanda" data-diff="3.0"></tr>
-      <tr data-name="Walking Dead All Out War" data-type="Wargame táctico con miniaturas" data-diff="6.0"></tr>
-      <tr data-name="What's up" data-type="Memoria y patrones" data-diff="2.0"></tr>
-      <tr data-name="Zombie Dice" data-type="Push-your-luck con dados" data-diff="2.0"></tr>
+          <!-- Cada link apunta a una búsqueda en BGG por nombre del juego -->
+          <tr><td>Bienvenidos al Dungeon</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Bienvenidos%20al%20Dungeon" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Bunny Kingdom</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Bunny%20Kingdom" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Carcassonne Safari</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Carcassonne%20Safari" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Careta</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Careta" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Carta Futbol Club</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Carta%20Futbol%20Club" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Catan</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Catan" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Checkpoint Charlie</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Checkpoint%20Charlie" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Código Secreto</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Codenames" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Conejos en el Huerto</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Conejos%20en%20el%20Huerto" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Cultivos Mutantes</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Cultivos%20Mutantes" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Descifra el Código</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Descifra%20el%20Código" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Dr. Eureka</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Dr.%20Eureka" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Dragons</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Dragons" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Dungeon Academy</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Dungeon%20Academy" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Dungeon Raiders</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Dungeon%20Raiders" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Dungeons and Drinks</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Dungeons%20and%20Drinks" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>El Camarero</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=El%20Camarero" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>El Gran Libro de la Locura</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=The%20Big%20Book%20of%20Madness" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Fantasma Blitz</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Geistesblitz" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Ishtar</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Ishtar" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Kanagawa</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Kanagawa" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Kariba</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Kariba" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>King of Tokyo</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=King%20of%20Tokyo" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Kingdomino</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Kingdomino" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Kinmo</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Kinmo" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Last Aurora</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Last%20Aurora" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Minecraft (juego de mesa)</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Minecraft" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Montañas de la locura</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Mountains%20of%20Madness" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Munchkin</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Munchkin" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Musa</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Muse" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Olvir</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Olvir" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Papillon</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Papillon" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Pirámide del Sol</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Piramide%20del%20Sol" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Pistas Cruzadas</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Crossed%20Clues" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Próxima Estación Londres</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Next%20Station%20London" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Rock Paper Wizard</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Rock%20Paper%20Wizard" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Saboteur</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Saboteur" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Schotten Totten</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Schotten%20Totten" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Sonora</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Sonora" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Spyfall</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Spyfall" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Star Wars Rebelión vs Imperio</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Star%20Wars%20Rebellion%20Imperial" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Taco Atrás</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Taco%20Atrás" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Tiny Epic Kingdoms</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Tiny%20Epic%20Kingdoms" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Treasure Hunter</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Treasure%20Hunter" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Tsukiji</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Tsukiji" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Walking Dead: All Out War</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Walking%20Dead%20All%20Out%20War" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>What's Up</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=What%27s%20Up" target="_blank">Ver en BGG</a></td></tr>
+          <tr><td>Zombie Dice</td><td><a href="https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=Zombie%20Dice" target="_blank">Ver en BGG</a></td></tr>
         </tbody>
       </table>
-
-      <p class="highlight">
-        Los valores de dificultad son aproximados y orientativos, pensados para
-        ayudar a elegir juegos adecuados a cada grupo. Para más información,
-        se puede consultar cada juego en BoardGameGeek (BGG) o ver reseñas en
-        video.
-      </p>
-
-      <p class="highlight">
-        Si sos estudiante de la UNTDF y te gustaría colaborar con el armado del
-        catálogo o proponiendo nuevos juegos, escribinos a través del contacto
-        que aparece al final de la página.
-      </p>
-	        <script>
-        (function () {
-          var tbody = document.querySelector('.catalogo-table tbody');
-          if (!tbody) return;
-
-          var filas = tbody.querySelectorAll('tr[data-name]');
-          filas.forEach(function (fila) {
-            var nombre = fila.dataset.name;
-            var tipo = fila.dataset.type;
-            var diff = fila.dataset.diff;
-
-            var bggUrl =
-              'https://boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q=' +
-              encodeURIComponent(nombre);
-
-            var reseñasUrl =
-              'https://www.youtube.com/results?search_query=' +
-              encodeURIComponent('reseña ' + nombre + ' juego de mesa');
-
-            fila.innerHTML =
-              '<td>' + nombre + '</td>' +
-              '<td>' + tipo + '</td>' +
-              '<td>' + diff + '</td>' +
-              '<td><a href="' + bggUrl +
-              '" target="_blank" rel="noopener">Ver en BGG</a></td>' +
-              '<td><a href="' + reseñasUrl +
-              '" target="_blank" rel="noopener">Buscar reseñas</a></td>';
-          });
-        })();
-      </script>
-
-    </section>
-
-    <!-- JORNADAS -->
-    <section id="jornadas">
-      <h2>Jornadas de juegos con escuelas secundarias</h2>
-
-      <p>
-        El corazón del proyecto son las <strong>jornadas de juegos de mesa con
-        escuelas secundarias</strong>, realizadas en la UNTDF con frecuencia
-        trisemanal o mensual. La idea es que grupos de estudiantes de nivel
-        medio visiten la universidad, jueguen, conozcan sus espacios y dialoguen
-        con estudiantes y docentes.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <span class="pill">Dinámica de la jornada</span>
-          <h3>¿Qué pasa cuando la escuela viene a jugar?</h3>
-          <ul>
-            <li>Recepción y bienvenida institucional.</li>
-            <li>
-              Mesas simultáneas de juegos coordinadas por monitores lúdicos
-              universitarios.
-            </li>
-            <li>
-              Pequeños descansos, intercambio de impresiones y rotación entre
-              juegos.
-            </li>
-            <li>
-              Entrega de <strong>volantes y flyers</strong> sobre la UNTDF:
-              carreras, becas, modos de ingreso.
-            </li>
-            <li>
-              Recorrido guiado por <strong>laboratorios, talleres y aulas</strong>.
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="pill">Escuelas</span>
-          <h3>¿Cómo participar?</h3>
-          <p>
-            La participación se coordina con equipos directivos y docentes de
-            las escuelas interesadas. Se acuerdan:
-          </p>
-          <ul>
-            <li>Fecha y horario de la visita.</li>
-            <li>Cantidad aproximada de estudiantes.</li>
-            <li>
-              Duración de la jornada y espacios específicos a recorrer (según
-              interés).
-            </li>
-          </ul>
-          <p>
-            El proyecto puede adaptarse a diferentes orientaciones y propuestas
-            institucionales de cada escuela.
-          </p>
-        </div>
-      </div>
-
-      <h3>Propósito de las jornadas</h3>
-      <ul>
-        <li>
-          Acercar la experiencia universitaria a estudiantes de secundaria en
-          clave de <strong>encuentro lúdico</strong>.
-        </li>
-        <li>
-          Fortalecer las <strong>trayectorias educativas</strong> hacia la
-          educación superior.
-        </li>
-        <li>
-          Abrir la universidad como espacio cultural, de juego y de producción
-          de conocimiento.
-        </li>
-      </ul>
-    </section>
-
-    <!-- WEB Y VIDEOS TUTORIALES -->
-    <section id="web-videos">
-      <h2>Página web &amp; videos tutoriales</h2>
-
-      <div class="grid">
-        <div class="card">
-          <span class="pill">Web del proyecto</span>
-          <h3>Fundamentación, recursos y novedades</h3>
-          <p>
-            La página web funciona como <strong>espacio de referencia</strong> del
-            proyecto. Allí se podrá encontrar:
-          </p>
-          <ul>
-            <li>Presentación general y fundamentación pedagógica.</li>
-            <li>
-              Información sobre la ludoteca y el catálogo de juegos
-              disponibles.
-            </li>
-            <li>Calendario de jornadas y noticias.</li>
-            <li>
-              Recursos e ideas de actividades para <strong>docentes de nivel
-              medio</strong>.
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="pill">Tutoriales</span>
-          <h3>Aprender a jugar, aprender enseñando</h3>
-          <p>
-            Como parte del proyecto se producirán <strong>videos tutoriales de
-            los juegos</strong>, que estarán disponibles en la web. Los
-            tutoriales buscarán:
-          </p>
-          <ul>
-            <li>Explicar las reglas de manera clara y accesible.</li>
-            <li>
-              Mostrar ejemplos de turno y estrategias básicas, con estudiantes
-              en rol de explicadores.
-            </li>
-            <li>
-              Servir como recurso para docentes que quieran usar los juegos en
-              sus escuelas.
-            </li>
-          </ul>
-          <p>
-            La producción de estos videos buscará articular con la
-            <strong>carrera de Medios Audiovisuales</strong>, integrando
-            estudiantes y docentes en la planificación, filmación y edición.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRENSA Y MATERIALES AUDIOVISUALES -->
-    <section id="prensa">
-      <h2>Prensa y materiales audiovisuales</h2>
-      <p>
-        El proyecto <em>Jugar es cosa seria</em> y las actividades lúdicas en la
-        UNTDF tuvieron repercusión en medios locales y redes sociales. Aquí se
-        recopilan algunos de esos materiales, que ayudan a dimensionar el
-        impacto cultural y comunitario de la propuesta.
-      </p>
-
-      <div class="media-embed">
-        <div class="card">
-          <span class="pill">Entrevista radial</span>
-          <h3>Jugar es cosa seria en radio</h3>
-          <p>
-            Entrevista en la que se presenta el proyecto, sus objetivos y la
-            experiencia de trabajo con estudiantes.
-          </p>
-          <iframe
-            src="https://www.youtube.com/embed/Znl2yi1b86M"
-            title="Entrevista radial Jugar es cosa seria"
-            allowfullscreen
-          ></iframe>
-          <p>
-            <a href="https://youtu.be/Znl2yi1b86M" target="_blank" rel="noopener">
-              Ver en YouTube
-            </a>
-          </p>
-        </div>
-
-        <div class="card">
-          <span class="pill">Televisión</span>
-          <h3>Presentación del proyecto</h3>
-          <p>
-            Breve aparición televisiva presentando la propuesta de juegos de
-            mesa en la UNTDF.
-          </p>
-          <p>
-            <a
-              href="https://www.instagram.com/reel/C7FhW67ISJt/"
-              target="_blank"
-              rel="noopener"
-            >
-              Ver reel en Instagram
-            </a>
-          </p>
-        </div>
-
-        <div class="card">
-          <span class="pill">Ushuaia Lúdica</span>
-          <h3>Un proyecto que se expande</h3>
-          <p>
-            Nota televisiva sobre <strong>Ushuaia Lúdica</strong>, iniciativa
-            autónoma surgida en parte a partir de la experiencia de juegos de
-            mesa en la UNTDF, donde se agradece y menciona el proyecto
-            extensionista original.
-          </p>
-          <p>
-            <a
-              href="https://www.instagram.com/reel/DCmzcGDsSJz/"
-              target="_blank"
-              rel="noopener"
-            >
-              Ver nota sobre Ushuaia Lúdica
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <h3>Otros materiales</h3>
-      <p>
-        Además de los videos, el proyecto cuenta con registros fotográficos de
-        jornadas en la UNTDF y en escuelas, flyers de difusión y audios de
-        entrevistas. Estos materiales pueden utilizarse para:
-      </p>
-      <ul>
-        <li>Documentar la trayectoria de la ludoteca y sus actividades.</li>
-        <li>Presentar el proyecto en informes, ponencias y jornadas académicas.</li>
-        <li>
-          Motivar a nuevas escuelas y estudiantes a sumarse a las jornadas de
-          juego.
-        </li>
-      </ul>
-    </section>
-
-    <!-- EQUIPO -->
-    <section id="equipo">
-      <h2>Equipo del proyecto</h2>
-
-      <p>
-        El proyecto está coordinado por <strong>docentes de la UNTDF</strong> y
-        cuenta con la participación de estudiantes universitarios y docentes de
-        escuelas secundarias.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <span class="pill">Coordinación general</span>
-          <h3>Equipo universitario</h3>
-          <ul>
-            <li>
-              <strong>Responsable del proyecto:</strong> docente UNTDF.
-            </li>
-            <li>
-              Docentes colaboradores de distintas carreras (por ejemplo,
-              Ingeniería, Educación, Medios Audiovisuales, etc.).
-            </li>
-            <li>
-              Estudiantes monitores lúdicos de diversas carreras.
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="pill">Vínculo con escuelas</span>
-          <h3>Docentes y equipos directivos</h3>
-          <p>
-            La participación de las escuelas se organiza con referentes
-            designados por cada institución, quienes colaboran en la
-            planificación de las visitas y en la selección de grupos
-            participantes.
-          </p>
-        </div>
-      </div>
-
-      <div class="taglist">
-        <span class="tag">Extensión universitaria</span>
-        <span class="tag">Escuela–universidad</span>
-        <span class="tag">Juegos de mesa</span>
-        <span class="tag">Inclusión educativa</span>
-        <span class="tag">Cultura lúdica</span>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>
-        Si sos docente o directivo de una escuela secundaria y te interesa que
-        tus estudiantes participen de una jornada de juegos en la UNTDF, o si
-        sos estudiante universitario y te gustaría sumarte como monitor lúdico,
-        podés escribirnos a:
-      </p>
-      <ul>
-        <li>
-          <strong>Correo electrónico:</strong> <em>(completar correo
-          institucional)</em>
-        </li>
-        <li>
-          <strong>WhatsApp de referencia:</strong> <em>(completar número de
-          contacto)</em>
-        </li>
-      </ul>
-      <p>
-        También podés acercarte personalmente a la ludoteca durante su horario
-        de apertura (día y horario a confirmar) en el SUM del edificio nuevo.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <p>
-        &copy; 2025 – Ludoteca Universitaria UNTDF. Proyecto de
-        extensión de la Universidad Nacional de Tierra del Fuego, Antártida e
-        Islas del Atlántico Sur.
-      </p>
-      <p>
-        Esta página es un borrador de trabajo para uso interno del proyecto. Los
-        contenidos, horarios y datos de contacto serán actualizados en la
-        versión definitiva.
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.5rem;">
+        El listado puede ampliarse y actualizarse con nuevas adquisiciones y donaciones. 
+        Para sugerir juegos o proponer actividades específicas, ver la sección de contacto.
       </p>
     </div>
-  </footer>
+  </section>
+
+  <!-- DIFUSIÓN EN MEDIOS -->
+  <section id="difusion">
+    <h2>Difusión en medios y registros de actividades</h2>
+    <p class="section-subtitle">
+      “Jugar es cosa seria” en radios, portales de noticias, redes sociales y otros espacios.
+    </p>
+    <div class="card">
+      <h3>Entrevistas y notas</h3>
+      <ul class="media-list">
+        <!-- Reemplazar los textos genéricos por enlaces concretos si los tenés -->
+        <li><strong>Entrevista radial</strong> sobre el proyecto “Jugar es cosa seria” y la ludoteca universitaria. <span class="tag">Radio</span></li>
+        <li><strong>Nota en portal local</strong> presentando las jornadas de juegos de mesa abiertas a la comunidad. <span class="tag">Prensa digital</span></li>
+        <li><strong>Difusión en redes sociales</strong> (UNTDF y proyectos asociados) con fotos de jornadas y encuentros. <span class="tag">Redes</span></li>
+        <li><strong>Registro audiovisual</strong> de actividades lúdicas en la universidad y en escuelas secundarias. <span class="tag">Video</span></li>
+      </ul>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.6rem;">
+        Aquí se irán agregando enlaces directos a audios, videos y artículos periodísticos relacionados con el proyecto.
+        También está prevista la producción de <strong>videos tutoriales de juegos</strong>, en articulación con la carrera de Medios Audiovisuales,
+        que se alojarán en esta misma página.
+      </p>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section id="recursos">
+    <h2>Recursos y materiales</h2>
+    <p class="section-subtitle">
+      Documentos, crónicas de actividades y materiales pedagógicos.
+    </p>
+    <div class="card">
+      <ul>
+        <li>Proyecto de extensión (versión presentada a la UNTDF).</li>
+        <li>Informe del proyecto “Jugar es cosa seria” (SPU).</li>
+        <li>Guías breves para docentes de nivel medio interesadas/os en trabajar con juegos de mesa.</li>
+        <li>Materiales en construcción para el taller de matemática para el ingreso.</li>
+        <li>Guías y archivos de ejemplo para el taller de diseño e impresión 3D.</li>
+      </ul>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.6rem;">
+        Estos materiales se irán subiendo y actualizando a medida que avance el proyecto. 
+        Si sos docente de escuela secundaria y te interesa recibirlos, podés escribir a los contactos disponibles más abajo.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto y participación</h2>
+    <p class="section-subtitle">
+      Para escuelas, estudiantes universitarios y docentes interesados en sumarse.
+    </p>
+    <div class="card">
+      <h3>Escuelas secundarias</h3>
+      <p>
+        Si querés organizar una <strong>jornada de juegos de mesa en la UNTDF</strong> con tus estudiantes, o te interesa el taller de
+        matemática y/o el taller de diseño e impresión 3D, podés escribir a:
+      </p>
+      <ul>
+        <li><strong>Correo institucional:</strong> [correo@untdf.edu.ar]</li>
+        <li><strong>Docente responsable:</strong> Lucas Ferreyra (UNTDF)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Estudiantes de la UNTDF</h3>
+      <p>
+        Si estudiás en la UNTDF y te interesan los juegos de mesa, la docencia, la matemática o la tecnología, podés:
+      </p>
+      <ul>
+        <li>Acercarte a la <strong>ludoteca</strong> en los horarios de apertura y pedir un juego en préstamo.</li>
+        <li>Sumarte como <strong>monitor/a lúdico/a</strong> en las jornadas con escuelas.</li>
+        <li>Colaborar en el taller de matemática o en el taller 3D, según tu carrera.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      Ludoteca Universitaria UNTDF – “Jugar es cosa seria”. Proyecto de extensión en construcción permanente.
+    </p>
+    <p>
+      Este sitio se mantiene como espacio de documentación y difusión de las actividades del proyecto.
+      Última actualización: [completar fecha].
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>
