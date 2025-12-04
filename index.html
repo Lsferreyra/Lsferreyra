@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Lucas Apellido – Página Académica</title>
+  <title>Lucas Ferreyra – Página Académica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Descripción para buscadores -->
-  <meta name="description" content="Página académica personal de Lucas Apellido. Docencia, proyectos de investigación y proyectos personales.">
+  <meta name="description" content="Página académica personal de Lucas Ferreyra. Docencia, proyectos de investigación, Ludoteca Universitaria y proyectos personales.">
 
   <style>
     :root {
@@ -257,6 +257,25 @@
       border: 1px solid #bcccdc;
     }
 
+    .boton-primario {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      background-color: var(--color-secundario);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .boton-primario:hover {
+      background-color: #b83232;
+      box-shadow: 0 2px 6px rgba(214, 69, 69, 0.35);
+      transform: translateY(-1px);
+    }
+
     footer {
       border-top: 1px solid #d8e2ec;
       padding: 1rem 0;
@@ -307,6 +326,7 @@
             <li><a href="#docencia">Docencia</a></li>
             <li><a href="#proyectos-academicos">Proyectos académicos</a></li>
             <li><a href="#proyectos-personales">Proyectos personales</a></li>
+            <li><a href="#ludoteca">Ludoteca Universitaria</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
@@ -314,16 +334,16 @@
 
       <div class="hero">
         <div class="hero-text">
-          <h1>Lucas Apellido</h1>
-          <h2>Físico · Profesor de Física y Matemática · Universidad Nacional de Tierra del Fuego</h2>
+          <h1>Lucas Ferreyra</h1>
+          <h2>Físico · Profesor Adjunto y Coordinador de la carrera Ingeniería Industrial (UNTDF)</h2>
           <p>
             Esta es mi página académica personal. Aquí concentro información sobre mis
-            actividades de docencia, proyectos de investigación y desarrollos personales
-            vinculados a ciencia, tecnología y juegos de mesa.
+            actividades de docencia, coordinación de la carrera de Ingeniería Industrial,
+            proyectos de investigación y extensión, y la Ludoteca Universitaria.
           </p>
           <div class="hero-meta">
             <span>📍 Ushuaia, Tierra del Fuego (Argentina)</span>
-            <span>🏛️ UNTDF</span>
+            <span>🏛️ Universidad Nacional de Tierra del Fuego</span>
           </div>
         </div>
 
@@ -331,8 +351,8 @@
           <h3>Accesos rápidos</h3>
           <ul>
             <li><a href="#docencia" style="color:#f6e05e;">Materias que dicto</a></li>
-            <li><a href="#proyectos-academicos" style="color:#f6e05e;">Proyectos de investigación</a></li>
-            <li><a href="#proyectos-personales" style="color:#f6e05e;">Proyectos personales y juegos de mesa</a></li>
+            <li><a href="#proyectos-academicos" style="color:#f6e05e;">Proyectos de investigación y extensión</a></li>
+            <li><a href="#ludoteca" style="color:#f6e05e;">Ludoteca Universitaria</a></li>
           </ul>
         </aside>
       </div>
@@ -344,14 +364,18 @@
     <section id="sobre-mi">
       <h2>Sobre mí</h2>
       <p class="texto">
-        Soy físico y profesor universitario en la Universidad Nacional de Tierra del Fuego.
-        Mi trabajo se centra en la enseñanza de la física y la matemática, el desarrollo de
-        proyectos de investigación y extensión, y la creación de propuestas lúdicas vinculadas
-        a la educación y la ciencia.
+        Soy Lucas Ferreyra, físico y profesor universitario en la Universidad Nacional de Tierra del Fuego.
+        Me desempeño como Profesor Adjunto y Coordinador de la carrera de Ingeniería Industrial.
+      </p>
+      <p class="texto">
+        Mi trabajo se centra en la enseñanza de la física y la matemática, la coordinación académica,
+        el desarrollo de proyectos de investigación y extensión, y la creación de propuestas lúdicas
+        vinculadas a la educación y la ciencia.
       </p>
       <p class="texto">
         En esta página podés encontrar material para estudiantes, descripciones de mis proyectos
-        en curso y enlaces a recursos que utilizo en mis clases.
+        en curso, información sobre la Ludoteca Universitaria y enlaces a recursos que utilizo
+        en mis clases.
       </p>
     </section>
 
@@ -432,8 +456,6 @@
           </p>
           <a href="#" target="_blank" rel="noopener">Descripción del proyecto</a>
         </article>
-
-        <!-- Agregar más proyectos si lo necesitás -->
       </div>
     </section>
 
@@ -461,6 +483,24 @@
       </ul>
     </section>
 
+    <!-- LUDOTECA UNIVERSITARIA -->
+    <section id="ludoteca">
+      <h2>Ludoteca Universitaria</h2>
+      <p class="texto">
+        La Ludoteca Universitaria es un espacio de la UNTDF dedicado a los juegos de mesa
+        modernos como herramienta de encuentro, aprendizaje y extensión universitaria.
+        Reúne un catálogo de juegos seleccionados, propuestas de actividades para escuelas
+        y comunidad, y materiales de apoyo para docentes.
+      </p>
+      <p class="texto">
+        En la página específica de la Ludoteca podés encontrar el inventario de juegos,
+        criterios de selección, propuestas de uso didáctico y novedades sobre actividades
+        y eventos.
+      </p>
+      <!-- Cuando tengas la página propia de la ludoteca, este link la abre -->
+      <a class="boton-primario" href="ludoteca.html">Ir a la página de la Ludoteca Universitaria</a>
+    </section>
+
     <!-- CONTACTO -->
     <section id="contacto">
       <h2>Contacto</h2>
@@ -468,9 +508,10 @@
         <div class="contacto-datos">
           <p><strong>Correo institucional:</strong>
             <!-- Cambiar por tu correo real -->
-            <a href="mailto:lucas.apellido@untdf.edu.ar">lucas.apellido@untdf.edu.ar</a>
+            <a href="mailto:lucas.ferreyra@untdf.edu.ar">lucas.ferreyra@untdf.edu.ar</a>
           </p>
           <p><strong>Afiliación:</strong> Universidad Nacional de Tierra del Fuego</p>
+          <p><strong>Cargo:</strong> Profesor Adjunto y Coordinador de la carrera Ingeniería Industrial</p>
           <p><strong>Ciudad:</strong> Ushuaia, Tierra del Fuego, Argentina</p>
 
           <p style="margin-top:0.6rem;"><strong>Perfiles académicos:</strong></p>
@@ -495,7 +536,7 @@
   <footer>
     <div class="contenedor">
       <div>
-        © <span id="anio-actual"></span> Lucas Apellido – Página académica personal.
+        © <span id="anio-actual"></span> Lucas Ferreyra – Página académica personal.
       </div>
       <div>
         Sitio estático construido con HTML + CSS y hospedado en GitHub Pages.
